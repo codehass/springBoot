@@ -1,26 +1,31 @@
-package com.learning.springBoot;
+package com.learning.springBoot.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "\"user\"")
 public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-
+  private int id;
   private String name;
   private String email;
 
-  // Getters and setters
-  public Long getId() {
+  // Constructors, Getters, and Setters
+  public User() {
+  }
+
+  public User(String name, String email) {
+    this.name = name;
+    this.email = email;
+  }
+
+  public int getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(int id) {
     this.id = id;
   }
 
